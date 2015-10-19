@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class ExceptionExamplesTests {
 
-    @Test
+    @Test(expected =  RuntimeException.class)
     public void testTryCatchFinally(){
         try{
             throw new RuntimeException();
