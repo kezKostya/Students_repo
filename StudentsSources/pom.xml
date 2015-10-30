@@ -16,6 +16,14 @@
         <module>validation-api</module>
     </modules>
 
+    <profiles>
+        <profile>
+            <id>hometask</id>
+            <modules>
+                <module>send-sources</module>
+            </modules>
+        </profile>
+    </profiles>
     <build>
 
         <plugins>
