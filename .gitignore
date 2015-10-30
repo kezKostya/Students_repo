@@ -15,5 +15,5 @@
 hs_err_pid*
 
 #Ignore everuthing in /target or in /.idea
-*/target/*
-*/.idea/*
+**/target
+**/.idea

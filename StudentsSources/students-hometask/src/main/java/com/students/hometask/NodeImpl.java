@@ -1,9 +1,13 @@
 package com.students.hometask;
 
+import com.students.annotation.NotNull;
+
 /**
  * Created by kkolesnichenko on 10/23/2015.
  */
 public class NodeImpl<T> implements Node<T> {
+
+   @NotNull
    private T value;
    private Node<T> next;
 

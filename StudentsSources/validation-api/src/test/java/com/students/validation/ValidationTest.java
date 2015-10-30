@@ -67,23 +67,13 @@ public class ValidationTest {
         }
     }
 
-    public static <T>  void validate(T object) {
-        Validator validator = ValidationFabric.buildDefaultValidation();
-        java.util.Set<ConstraintViolation<T>> constraintViolations = validator.validate(object);
-        if (!constraintViolations.isEmpty()) {
-            StringBuilder msg = new StringBuilder();
-            for (ConstraintViolation<T> violation : constraintViolations) {
-                msg.append(violation.getMessage()).append(". ");
-            }
-            throw new IllegalStateException(msg.toString());
-        }
-    }
+
 
     @Test(expected = IllegalStateException.class)
     public void testNotNull(){
         Person person=new Person();
 
-        validate(person);
+        ValidationFabric.validate(person);
     }
 
 
@@ -92,7 +82,7 @@ public class ValidationTest {
         Person person=new Person();
         person.setLastName("Kolesnichenko-Oleynikova");
         person.setName("Irina");
-        validate(person);
+        ValidationFabric.validate(person);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -100,7 +90,7 @@ public class ValidationTest {
         Person person=new Person();
         person.setLastName("Kolesnichenko-Oleynikova1");
         person.setName("Irina1");
-        validate(person);
+        ValidationFabric.validate(person);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -108,6 +98,6 @@ public class ValidationTest {
         Person person=new Person();
         person.setLastName("Kostya");
         person.setName("Kostya");
-        validate(person);
+        ValidationFabric.validate(person);
     }
 }
