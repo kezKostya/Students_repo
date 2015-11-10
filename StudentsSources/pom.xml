@@ -14,6 +14,7 @@
         <module>students-hometask</module>
         <module>students-samples</module>
         <module>validation-api</module>
+        <module>concurent-examples</module>
     </modules>
 
     <profiles>
@@ -24,6 +25,7 @@
             </modules>
         </profile>
     </profiles>
+
     <build>
 
         <plugins>
