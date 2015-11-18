@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+     <!--bean id="studentsServicesRest" class="com.students.services.rest.StudentsServicesRest" scope="singleton">
+        <property name="delegate" ref="studentsService"/>
+     </bean-->
+
+
+    <bean name="NicolaTesla" class="com.students.domain.Student">
+        <property name="id" value="1"/>
+        <property name="firtsName"  value="Nicola"/>
+        <property name="lastName" value="Tesla"/>
+        <property name="courses">
+            <map>
+                <entry key-ref="mathematics" value="90"/>
+                <entry key-ref="physics" value="100"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="studentsService" class="com.students.services.impl.StudentsServiceWithDataImpl" scope="singleton">
+     <property name="data">
+         <list>
+            <ref bean="NicolaTesla"/>
+             <bean  class="com.students.domain.Student">
+                 <property name="id" value="2"/>
+                 <property name="firtsName"  value="Vasya"/>
+                 <property name="lastName" value="Pupkin"/>
+                 <property name="courses">
+                     <map>
+                         <entry key-ref="mathematics" value="50"/>
+                     </map>
+                 </property>
+             </bean>
+         </list>
+     </property>
+    </bean>
+
+    <bean name="mathematics" class="com.students.domain.Course">
+        <property name="id" value="1"/>
+        <property name="name" value="mathematics"/>
+        <property name="teachers">
+            <set>
+                <ref bean="teacher1"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean name="physics" class="com.students.domain.Course">
+        <property name="id" value="2"/>
+        <property name="name" value="physics"/>
+    </bean>
+
+
+    <bean name="coursesData" class="com.students.services.impl.GenericDataService">
+        <property name="data">
+            <list>
+                <ref bean="mathematics"/>
+                <ref bean="physics"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="teacher1" class="com.students.domain.Teacher">
+        <property name="id" value="3"/>
+        <property name="firtsName"  value="Denis"/>
+        <property name="lastName" value="Popov"/>
+    </bean>
+
+    <bean name="homeTask1" class="com.students.domain.HomeTask">
+        <property name="id" value="1"/>
+        <property name="course" ref="mathematics"/>
+        <property name="reviewer" ref="teacher1"/>
+        <property name="student" ref="NicolaTesla"/>
+        <property name="score" value="90"/>
+    </bean>
+
+    <bean name="homeTask2" class="com.students.domain.HomeTask">
+        <property name="id" value="2"/>
+        <property name="course" ref="mathematics"/>
+        <property name="reviewer" ref="teacher1"/>
+        <property name="student" ref="NicolaTesla"/>
+        <property name="score" value="95"/>
+    </bean>
+
+
+    <bean name="homeTaskData" class="com.students.services.impl.GenericDataService">
+        <property name="data">
+            <list>
+                <ref bean="homeTask1"/>
+                <ref bean="homeTask2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="teacherData" class="com.students.services.impl.GenericDataService">
+        <property name="data">
+            <list>
+                <ref bean="teacher1"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

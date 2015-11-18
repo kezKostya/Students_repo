@@ -15,6 +15,7 @@
         <module>students-samples</module>
         <module>validation-api</module>
         <module>concurent-examples</module>
+        <module>studends-app</module>
     </modules>
 
     <profiles>
