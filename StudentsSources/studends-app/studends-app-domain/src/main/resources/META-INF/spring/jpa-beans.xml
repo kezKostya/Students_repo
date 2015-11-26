@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	<context:property-placeholder ignore-resource-not-found="true" ignore-unresolvable="true"
+								  location="classpath:orm.properties"/>
+
+
+    <bean id="dataSource"    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   				<property name="driverClassName" value="${jdbc.driverClassName}" />
+  				<property name="url" value="${jdbc.url}" />
+   				<property name="username" value="${jdbc.username}" />
+   				<property name="password" value="${jdbc.password}" />
+    </bean>
+
+
+	<!-- will require persistance.xml file-->
+	<!--bean id="persistenceUnitManager"
+		  class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="dataSources">
+			<map>
+				<entry key="localDataSource" value-ref="dataSource" />
+			</map>
+		</property>
+		<property name="defaultDataSource" ref="dataSource" />
+	</bean-->
+
+
+
+
+
+    <bean id="entityManagerFactory"
+    		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    		<!--property name="persistenceUnitManager" ref="persistenceUnitManager" /-->
+		   <property name="packagesToScan" value="com.students.domain" />
+    		<property name="dataSource" ref="dataSource"/>
+    		<property name="jpaVendorAdapter">
+    			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+    		</property>
+    		<property name="jpaProperties">
+    			<props>
+					<prop key="spring.jpa.generate-ddl">${orm.generateDdl}</prop>
+					<prop key="hibernate.dialect">${orm.databasePlatform}</prop>
+    				<prop key="hibernate.hbm2ddl.auto">${orm.ddlAuto}</prop>
+    			</props>
+    		</property>
+    	</bean>
+
+
+	<!--
+    PostProcessors to perform resource injection according to the JPA specification
+    (@PersistenceContext, @PersistenceUnit).
+    -->
+	<!-- Spring adds it in org.springframework.context.annotation.AnnotationConfigUtils#registerAnnotationConfigProcessors
+  -->
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+
+
+</beans>

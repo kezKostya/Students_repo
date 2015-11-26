@@ -14,6 +14,10 @@
     <properties>
      <!--spring.version>3.2.10.RELEASE</spring.version-->
         <spring.version>4.0.6.RELEASE</spring.version>
+        <jpa.version>2.0-cr-1</jpa.version>
+        <hibernare.version>3.6.9.Final</hibernare.version>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <jackson.core>2.2.3</jackson.core>
     </properties>
     <modules>
         <module>sutends-app-war</module>
@@ -26,7 +30,29 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+       </dependency>
+        <dependency>
+            <groupId>org.hibernate.java-persistence</groupId>
+            <artifactId>jpa-api</artifactId>
+            <version>${jpa.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.core}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.core}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.core}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

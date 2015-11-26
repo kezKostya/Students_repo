@@ -15,6 +15,8 @@ public  class GenericDataService<T extends BaseEntity, ID extends Long> implemen
 
     private List<T> data;
 
+
+
     @Override
     public List<T> findAll() {
         return  getData();

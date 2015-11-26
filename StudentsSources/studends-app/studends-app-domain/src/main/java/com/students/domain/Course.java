@@ -2,16 +2,22 @@ package com.students.domain;
 
 import com.students.domain.common.BaseEntity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by kkolesnichenko on 11/13/2015.
  */
+@Entity
 public class Course extends BaseEntity {
 
     private String name;
 
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "course", fetch = FetchType.EAGER)
     private Set<Teacher> teachers=new HashSet<>();
 
 
@@ -42,6 +48,11 @@ public class Course extends BaseEntity {
 
     public int hashCode(){
         return getName().hashCode();
+    }
+
+    @Override
+    public String toString(){
+        return getClass().getSimpleName() +" : "+getName();
     }
 
 }

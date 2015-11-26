@@ -1,20 +1,32 @@
 package com.students.domain;
 
-import com.students.domain.common.BaseEntity;
+
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.students.domain.common.BaseHistoryEntity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * Created by kkolesnichenko on 11/13/2015.
  */
+@Entity
 public class HomeTask extends BaseHistoryEntity {
 
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Course course;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Teacher reviewer;
 
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Student student;
 
     private BigDecimal score;
@@ -83,8 +95,13 @@ public class HomeTask extends BaseHistoryEntity {
         this.reviewNotes = reviewNotes;
     }
 
+    @JsonIgnore
     public Student getStudent() {
         return student;
+    }
+
+    public Long getStudentId() {
+        return student.getId();
     }
 
     public void setStudent(Student student) {
