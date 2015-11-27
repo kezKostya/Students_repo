@@ -9,6 +9,11 @@ rem set JAVA_OPTS=-Xms1024m -Xmx4000m -XX:MaxPermSize=2048m -Xdebug -Xrunjdwp:tr
 rem set MAVEN_OPTS=-Xms1024m -Xmx5000m -XX:MaxPermSize=1024m
 
 
+set DB_URL=jdbc:oracle:thin:@oracle_host:orcale_port:sid
+set DRYIVER_CLASS_NAME=oracle.jdbc.OracleDriver
+set DB_USER=userName
+set DB_PASS=userPass
+
 set "WORK_ROOT=%cd%"
 set CONF_DIR=%WORK_ROOT%\config
 set "CATALINA_HOME_APP=%WORK_ROOT%\tomcat"

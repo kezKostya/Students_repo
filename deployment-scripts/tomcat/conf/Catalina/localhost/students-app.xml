@@ -1,1 +1,17 @@
-<Context docBase="D:\Students\Students_repo\StudentsSources\studends-app\sutends-app-war\target\sutends-app-war" reloadable="false" />
+<Context docBase="D:\Students\Students_repo\StudentsSources\studends-app\sutends-app-war\target\sutends-app-war" reloadable="false" >
+
+       <Resource name="jdbc/ConnectionDB"  auth="Container" type="javax.sql.DataSource" 
+		url="jdbc:oracle:thin:@oracle_host:orcale_port:sid"
+		driverClassName="oracle.jdbc.OracleDriver" 
+		username="userName" password="userPass" 
+        
+		factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+
+		testOnBorrow="true" 
+		testOnReturn="true" 
+		timeBetweenEvictionRunsMillis="60000" 
+		maxActive="50" maxIdle="50" 
+		maxWait="5000"/>
+
+
+</Context>

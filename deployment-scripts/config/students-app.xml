@@ -1,1 +1,17 @@
-<Context docBase="STUDENTS_APP_HOME\StudentsSources\studends-app\sutends-app-war\target\sutends-app-war" reloadable="false" />
+<Context docBase="STUDENTS_APP_HOME\StudentsSources\studends-app\sutends-app-war\target\sutends-app-war" reloadable="false" >
+
+       <Resource name="jdbc/ConnectionDB"  auth="Container" type="javax.sql.DataSource" 
+		url="DB_URL"
+		driverClassName="DRYIVER_CLASS_NAME" 
+		username="DB_USER" password="DB_PASS" 
+        
+		factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+
+		testOnBorrow="true" 
+		testOnReturn="true" 
+		timeBetweenEvictionRunsMillis="60000" 
+		maxActive="50" maxIdle="50" 
+		maxWait="5000"/>
+
+
+</Context>
