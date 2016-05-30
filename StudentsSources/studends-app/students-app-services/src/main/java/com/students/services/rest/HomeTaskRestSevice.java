@@ -12,11 +12,11 @@ import javax.annotation.Resource;
 /**
  * Created by kkolesnichenko on 11/18/2015.
  */
-@Controller
-@RequestMapping("homeTasks")
+//@Controller
+//@RequestMapping("homeTasks")
 public class HomeTaskRestSevice  extends BaseRestService<HomeTask,Long, BaseService<HomeTask,Long>> {
 
-    @Resource(name="homeTaskData")
+    //@Resource(name="homeTaskData")
     public void setDelegate(BaseService delegate) {
         super.setDelegate(delegate);
     }

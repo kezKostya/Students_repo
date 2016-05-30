@@ -14,13 +14,13 @@ import javax.annotation.Resource;
 /**
  * Created by kkolesnichenko on 11/18/2015.
  */
-@Controller
-@RequestMapping("courses")
+//@Controller
+//@RequestMapping("courses")
 public class CursesRestService extends BaseRestService<Course,Long, BaseService<Course,Long>> {
 
 
-    @Autowired
-    @Qualifier("coursesData")
+    //@Autowired
+    //@Qualifier("coursesData")
     //@Resource(name="studentsService")
     public void setDelegate(BaseService delegate) {
         super.setDelegate(delegate);

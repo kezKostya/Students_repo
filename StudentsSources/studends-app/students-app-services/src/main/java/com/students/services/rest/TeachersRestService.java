@@ -12,11 +12,11 @@ import javax.annotation.Resource;
 /**
  * Created by kkolesnichenko on 11/18/2015.
  */
-@Controller
-@RequestMapping("teachers")
+//@Controller
+//@RequestMapping("teachers")
 public class TeachersRestService  extends BaseRestService<Teacher,Long, BaseService<Teacher,Long>> {
 
-    @Resource(name="teacherData")
+    //@Resource(name="teacherData")
     public void setDelegate(BaseService delegate) {
         super.setDelegate(delegate);
     }

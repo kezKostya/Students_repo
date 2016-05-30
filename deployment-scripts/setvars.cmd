@@ -9,10 +9,10 @@ rem set JAVA_OPTS=-Xms1024m -Xmx4000m -XX:MaxPermSize=2048m -Xdebug -Xrunjdwp:tr
 rem set MAVEN_OPTS=-Xms1024m -Xmx5000m -XX:MaxPermSize=1024m
 
 
-set DB_URL=jdbc:oracle:thin:@oracle_host:orcale_port:sid
+set DB_URL=jdbc:oracle:thin:@odsoradb01.exigengroup.com:1521:prm
 set DRYIVER_CLASS_NAME=oracle.jdbc.OracleDriver
-set DB_USER=userName
-set DB_PASS=userPass
+set DB_USER=kkolesnichenko_premier
+set DB_PASS=kkolesnichenko_premier
 
 set "WORK_ROOT=%cd%"
 set CONF_DIR=%WORK_ROOT%\config

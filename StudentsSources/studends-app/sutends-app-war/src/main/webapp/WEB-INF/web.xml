@@ -5,17 +5,39 @@
 <web-app>
   <display-name>Students web app</display-name>
 
-    <servlet>
+    <!--servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping-->
+
+
+    <servlet>
+        <servlet-name>rest</servlet-name>
+        <servlet-class>org.springframework.data.rest.webmvc.RepositoryRestDispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!--servlet>
+        <servlet-name>rest</servlet-name>
+        <servlet-class>org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet-->
+
+    <servlet-mapping>
+        <servlet-name>rest</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--context-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param-->
 
 
     <context-param>
@@ -25,19 +47,21 @@
         </param-value>
     </context-param>
 
+
+
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
 
-    <resource-ref>
+    <!--resource-ref>
         <description>
             Resource reference to a factory for java.sql.Connection
         </description>
         <res-ref-name>jdbc/ConnectionDB</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
-    </resource-ref>
+    </resource-ref-->
 
 </web-app>

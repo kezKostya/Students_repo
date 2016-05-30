@@ -18,8 +18,8 @@ import java.util.Collection;
 /**
  * Created by kkolesnichenko on 11/13/2015.
  */
-@Controller
-@RequestMapping("students")
+//@Controller
+//@RequestMapping("students")
 public class StudentsRestService extends BaseRestService<Student,Long, StudentsService> implements StudentsService {
 
 
@@ -41,7 +41,7 @@ public class StudentsRestService extends BaseRestService<Student,Long, StudentsS
 
     //@Autowired()
     //@Qualifier("studentsService")
-    @Resource(name="studentsService")
+    //@Resource(name="studentsService")
     public void setDelegate(StudentsService delegate) {
         super.setDelegate(delegate);
         this.delegate = delegate;

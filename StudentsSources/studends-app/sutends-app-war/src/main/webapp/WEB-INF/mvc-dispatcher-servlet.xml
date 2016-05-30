@@ -9,11 +9,15 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+
+    <context:annotation-config />
+
     <context:component-scan     base-package="com.students.services.rest"   />
+    <context:component-scan     base-package="com.students.services.rest.repository"   />
 
     <mvc:annotation-driven />
 
-    <jee:jndi-lookup id="JndiDataSource" jndi-name="java:comp/env/jdbc/ConnectionDB"/>
+    <!--jee:jndi-lookup id="JndiDataSource" jndi-name="java:comp/env/jdbc/ConnectionDB"/-->
 
     <!--uncomment this to use lookup connections -->
     <!--alias name="JndiDataSource" alias="dataSource" /-->
@@ -23,5 +27,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springfr
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
 
 </beans>
